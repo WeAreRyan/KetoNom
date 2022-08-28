@@ -1,0 +1,14 @@
+<div class="">
+    <h1 class="">Login</h1>
+    <form method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+        <table class="table table-sm">
+            {{ form.as_table }}
+        </table>
+        <div class="">
+            <input type="submit" class="" value="login">
+            <input type="hidden" name="next" value="{{ next }}">
+            <a class="" href="{% url 'signup' %}">SIGNUP</a>
+        </div>
+    </form>
+</div>

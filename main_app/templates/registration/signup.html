@@ -1,0 +1,16 @@
+<div class="">
+    <h1 class="">Sign Up</h1>
+    {% if error_message %}
+    <p class="red-text">{{ error_message }}</p>
+    {% endif %} 
+    
+    <form method="POST" action="{% url 'signup' %}">
+        {% csrf_token %}
+        <table class="table table-sm">
+            {{ form.as_table }}
+        </table>
+        <div class="">
+            <input type="submit" class=""" value="signup">
+        </div>
+    </form>
+</div>
