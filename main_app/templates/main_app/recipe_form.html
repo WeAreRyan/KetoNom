@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}
+  KetoNom Recipe
+{% endblock %}
+{% block content %}
+
+{% if recipe %}
+<h1>Edit <span class="">{{ recipe.name }}</span></h1>
+{% else %}
+<h1>New Recipe</h1>
+{% endif %}
+<form action="" method="POST">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <input type="submit" value="Submit!" class="btn">
+  </form>
+{% endblock %}

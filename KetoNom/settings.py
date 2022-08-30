@@ -81,7 +81,6 @@ WSGI_APPLICATION = 'KetoNom.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        # 'NAME': '!!ADD DATABASE NAME!!!',
         'NAME': 'KetoNom',
     }
 }

@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
@@ -16,11 +17,14 @@ def recipes_index(request):
     return render(request, "recipes/index.html", {"recipes": recipes})
 
 
+# CLASS-BASED VIEWS
+class RecipeCreate(CreateView):
+    model = Recipe
+    fields = ["name", "cookTime", "totalTime", "ingredients", "instructions"]
 
 
 
-
-
+# Authentication 
 def signup(request):
     if request.user.id:
         return redirect('home')

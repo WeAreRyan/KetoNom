@@ -27,9 +27,10 @@
                 <li><a href="badges.html">Components</a></li>
                 <li><a href="collapsible.html">Javascript</a></li>
                 <li><a href="mobile.html">Mobile</a></li>
+                <li><a href="mobile.html">Logout</a></li>
                 {% else %}
                 <li><a href="{% url 'login' %}">Log In</a></li>
-                <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                <li><a href="{% url 'logout' %}">Sign Up</a></li>
                 {% endif %}
               </ul>
             </div>
