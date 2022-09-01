@@ -5,26 +5,27 @@
 {% block content %}
 
 <h1> RECIPES INDEX</h1>
+<div>USING DEFUALT MATERIALIZE CARDS</div>
+<a href="/recipes/create/">ADD NEW RECIPE</a>
+<br>
+<div class="row" style="margin: 50px">
 {% for recipe in recipes %}
-<div>default materialize card</div>
-<div class="row">
-  <div class="col s12 m7">
+  <div class="col s2">
     <div class="card">
       <div class="card-image">
         <img src="images/sample-1.jpg">
-        <span class="card-title">Card Title</span>
+        <span class="card-title"> card title</span>
       </div>
       <div class="card-content">
-        <p>I am a very simple card. I am good at containing small bits of information.
-        I am convenient because I require little markup to use effectively.</p>
+        <p>{{ recipe.description }}</p>
       </div>
       <div class="card-action">
-        <a href="#">This is a link</a>
+        <a href="{% url 'recipe_detail' recipe.id %}">{{ recipe.name }}</a>
       </div>
     </div>
   </div>
+  {% endfor %} 
 </div>
-{% endfor %} 
 
 
 

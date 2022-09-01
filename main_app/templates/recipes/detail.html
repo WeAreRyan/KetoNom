@@ -3,9 +3,16 @@
   KetoNom Details
 {% endblock %}
 {% block content %}
+<h1>Recipe Detials page</h1>
+<div> {{ recipe.name }}</div>
+<div>{{ recipe.description }}</div>
 
 
-
+<form method="POST" action="{% url 'reviews_create' recipe.id %}">
+  {% csrf_token %}
+  {{ reviewForm.as_p}}
+  <input type="submit" class="btn" value="Add Review for {{ recipe.name }}">
+</form>
 
 
 {% endblock %}
