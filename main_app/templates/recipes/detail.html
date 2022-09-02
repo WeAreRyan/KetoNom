@@ -10,9 +10,15 @@
 
 <form method="POST" action="{% url 'reviews_create' recipe.id %}">
   {% csrf_token %}
-  {{ reviewForm.as_p}}
+  {{ reviewForm.as_table}}
   <input type="submit" class="btn" value="Add Review for {{ recipe.name }}">
 </form>
 
+{% for review in reviews %}
+
+<div> {{review.body}} </div>
+<div> {{review.stars}} </div>
+
+{% endfor %}
 
 {% endblock %}

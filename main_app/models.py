@@ -3,10 +3,18 @@ from django.db import models
 from django.urls import reverse
 from datetime import date
 
-MEALS = (
-    ("B", "Breakfast"),
-    ("L", "Lunch"),
-    ("D", "Dinner"),
+DIETS = (
+    ("None", "No restrictions"),
+    ("Keto", "Ketogenic"),
+    ("Paleo", "Paleolithic"),
+    ("ATK", "Atkins"),
+    ("Lo-F", "Low-Fat"),
+    ("Raw", "Raw Food"),
+    ("LCal", "Low Calorie"),
+    ("LCal", "Low Calorie"),
+    ("MediT", "Mediterranean"),
+    ("DASH", "dietary approaches to stop hypertension"),
+    ("Anti-A", "Anti-Inflammatory"),
 )
 
 
@@ -39,3 +47,13 @@ class Review(models.Model):
         Recipe, 
         on_delete=models.CASCADE
     )
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    about = models.TextField()
+    diet = models.CharField(
+        max_length=100, 
+        choices=DIETS, 
+        default=DIETS[0][0]
+        )
+    favorites = models.ManyToManyField(Recipe)
