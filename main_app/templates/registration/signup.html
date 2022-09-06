@@ -1,3 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}
+  Signup
+{% endblock %}
+
+{% block content %}
+
 <div class="">
     <h1 class="">Sign Up</h1>
     {% if error_message %}
@@ -10,7 +17,9 @@
             {{ form.as_table }}
         </table>
         <div class="">
-            <input type="submit" class=""" value="signup">
+            <input type="submit" class="" value="signup">
         </div>
     </form>
 </div>
+
+{% endblock %}

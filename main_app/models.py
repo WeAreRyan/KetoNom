@@ -50,6 +50,7 @@ class Review(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    age = models.IntegerField()
     about = models.TextField()
     diet = models.CharField(
         max_length=100, 
@@ -57,3 +58,6 @@ class Profile(models.Model):
         default=DIETS[0][0]
         )
     favorites = models.ManyToManyField(Recipe)
+
+    def get_absolute_url(self):
+        return reverse('home')

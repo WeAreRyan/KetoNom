@@ -1,0 +1,20 @@
+{% comment %} {% extends 'base.html' %} 
+{% load materializecss %}
+{% block title %} User Profile {% endblock %} 
+{% block css %} {% endblock css%}
+
+{% block content %}
+
+
+<h1>profile/create</h1>
+<form action="" method="POST">
+  {% csrf_token %}
+  <table>
+    {{ profile_form|materializecss }} {% csrf_token %}
+  </table>
+  <input type="submit" value="Submit!" class="btn" />
+</form>
+
+{% endblock %}
+
+{% block scripts %} {% endblock scripts%} {% endcomment %}
