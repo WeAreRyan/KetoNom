@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
+
 {% block title %}
   KetoNom Recipes
 {% endblock %}
 {% block content %}
+
 
 <h1> RECIPES INDEX</h1>
 <br>
@@ -18,10 +20,9 @@
 <div>USING DEFUALT MATERIALIZE CARDS</div>
 {% for recipe in recipes %}
   <div class="col s4">
-    <div class="card">
+    <div class="card recipe-card">
       <div class="card-image">
         <img src="images/sample-1.jpg">
-        <span class="card-title"> card title</span>
       </div>
       <div class="card-content">
         <p>{{ recipe.description }}</p>
@@ -31,11 +32,9 @@
       </div>
     </div>
   </div>
+
   {% endfor %} 
 </div>
-
-
-
 
 
 {% endblock %}
