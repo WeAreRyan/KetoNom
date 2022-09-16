@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% block title %} KetoNom Details {% endblock %} 
+{% extends 'base.html' %} {% block title %} {{ recipe.name }} Details {% endblock %} 
 {% block content %}
 <h1>Recipe Detials page</h1>
 {% if recipe.user == request.user%}
@@ -25,7 +25,7 @@
 
 <!-- VIEW UPLOADED PHOTOS -->
 {% for photo in recipe.recipephoto_set.all %}
-<img class="responsive-img card-panel" src="{{photo.url}}">
+<img class="responsive-img recipe-photo" src="{{photo.url}}">
 {% empty %}
 <div class="card-panel teal-text center-align">No Photos Uploaded</div>
 {% endfor %}

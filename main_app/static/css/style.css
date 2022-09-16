@@ -6,3 +6,8 @@
     color: red;
     font-size: 50px;
 }
+
+.recipe-photo {
+    border: solid black 1rem;
+    width: 100px;
+}
