@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User
+from django.contrib.postgres.fields import ArrayField
 from django.db import models
 from django.urls import reverse
 from datetime import date
@@ -16,6 +17,18 @@ DIETS = (
     ("DASH", "dietary approaches to stop hypertension"),
     ("Anti-A", "Anti-Inflammatory"),
 )
+
+INGREDIENTTYPES = {
+    ("U", "unknown"),
+    ("M", "Meet"),
+    ("P", "Protein"),
+    ("V", "Vegetable"),
+    ("F", "Fruit"),
+    ("H", "Herbs and Spices"),
+    ("S", "Starch"),
+    ("O", "Oil"),
+    ("W", "Sweetener"),
+}
 
 
 class Recipe(models.Model):
@@ -65,3 +78,12 @@ class Profile(models.Model):
 
     def get_absolute_url(self):
         return reverse('home')
+
+class Ingredient(models.Model):
+    name = models.Charfield(max_length=50)
+    type = models.CharField(
+        max_length=10, 
+        choices=INGREDIENTTYPES, 
+        default=INGREDIENTTYPES[0][0])
+    def __str__(self):
+        return self.name

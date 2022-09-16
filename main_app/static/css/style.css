@@ -1,5 +1,6 @@
 .recipe-card {
     height: 400px;
+    border-radius: 5px;
 }
 
 .testclass {
@@ -8,6 +9,8 @@
 }
 
 .recipe-photo {
-    border: solid black 1rem;
-    width: 100px;
+    border: solid black 5px;
+    border-radius: 20px;
+    width: 30rem;
+    margin: 1rem;
 }

@@ -1,12 +1,18 @@
 {% extends 'base.html' %} {% block title %} {{ recipe.name }} Details {% endblock %} 
 {% block content %}
-<h1>Recipe Detials page</h1>
+<h1>{{ recipe.name }}</h1>
 {% if recipe.user == request.user%}
 <a href="{% url 'recipe_update' recipe.id %}" class="btn green"
   >Update Recipe Details</a>
   {% endif %}
-<div>{{ recipe.name }}</div>
 <div>{{ recipe.description }}</div>
+<div>Time: {{recipe.totalTime}}</div>
+<div>CookTime: {{recipe.cookTime}}</div>
+<div>Ingredients: <div>
+  {% for ingredient in recipe.ingredients %}
+    <span>{{ ingredient.name }}, </span>
+    {% endfor %}
+    <div> {{ recipe.ingredients }} </div>
 
 {% if user.is_authenticated %} {% if favorited %}
 <a href="{% url 'favorite_add' recipe.id %}" class="btn red"
