@@ -3,7 +3,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormVi
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
-from .models import Recipe, Review, Profile, RecipePhoto
+from .models import Ingredient, Recipe, Review, Profile, RecipePhoto
 from .forms import UserForm, ReviewCreate, ProfileForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 import uuid
@@ -67,7 +67,7 @@ def add_recipe_photo(request, recipe_id):
     return redirect("recipe_detail", recipe_id=recipe_id)
 
 
-# CLASS-BASED VIEWS
+# CLASS-BASED
 class RecipeCreate(CreateView):
     model = Recipe
     fields = ["name", "description", "cookTime", "totalTime", "ingredients", "instructions"]
@@ -81,6 +81,25 @@ class RecipeUpdate(LoginRequiredMixin, UpdateView):
     fields = ["name", "description", "cookTime", "totalTime", "ingredients", "instructions"]
     
     
+
+# INGREDIENTS
+def ingredients_index(request):
+    ingredients = Ingredient.objects.all()
+    return render(request, "ingredients/index.html", {"ingredients": ingredients})
+
+def ingredients_detail(request, ingredient_id):
+    ingredient = Ingredient.objects.get(id=ingredient_id)
+    return render(request, "ingredients/detail.html", {"ingredient":ingredient })
+
+
+# CLASS-BASED
+class IngredientCreate(CreateView):
+    model = Recipe
+    fields = ["name", "category"]
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 # PROFILE
 

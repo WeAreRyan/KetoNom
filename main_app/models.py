@@ -80,10 +80,11 @@ class Profile(models.Model):
         return reverse('home')
 
 class Ingredient(models.Model):
-    name = models.Charfield(max_length=50)
-    type = models.CharField(
+    name = models.CharField(max_length=50)
+    user = models.ForeignKey
+    category = models.CharField(
         max_length=10, 
-        choices=INGREDIENTTYPES, 
-        default=INGREDIENTTYPES[0][0])
+        choices=INGREDIENTTYPES,
+        )
     def __str__(self):
         return self.name

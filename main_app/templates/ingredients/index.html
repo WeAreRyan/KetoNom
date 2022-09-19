@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  KetoNom Ingredients
+{% endblock %}
+{% block content %}
+
+
+<h1> Ingredients INDEX</h1>
+<br>
+<br>
+<br>
+<br>
+<a href="/ingredients/create/">CREATE NEW INGREDIENT</a>
+<br>
+<br>
+<br>
+<br>
+<div class="row">
+<div>USING DEFUALT MATERIALIZE CARDS</div>
+{% for ingredient in ingredients %}
+  <div class="col s4">
+    <div class="card recipe-card">
+      <div class="card-image">
+        <img src="https://s3.us-west-2.amazonaws.com/ketonom/3d22e3.jpeg">
+      </div>
+      <div class="card-content">
+        <p>{{ ingredient.name }}</p>
+      </div>
+      <div class="card-action">
+        {% comment %} <a href="{% url 'recipe_detail' recipe.id %}">{{ recipe.name }}</a> {% endcomment %}
+      </div>
+    </div>
+  </div>
+
+  {% endfor %} 
+</div>
+
+
+{% endblock %}
