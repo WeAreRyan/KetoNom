@@ -9,7 +9,7 @@
 <div>Time: {{recipe.totalTime}}</div>
 <div>CookTime: {{recipe.cookTime}}</div>
 <div>Ingredients: <div>
-  {% for ingredient in recipe.ingredients %}
+  {% for ingredient in recipe.ingredients.all %}
     <span>{{ ingredient.name }}, </span>
     {% endfor %}
     <div> {{ recipe.ingredients }} </div>

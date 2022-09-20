@@ -94,7 +94,7 @@ def ingredients_detail(request, ingredient_id):
 
 # CLASS-BASED
 class IngredientCreate(CreateView):
-    model = Recipe
+    model = Ingredient
     fields = ["name", "category"]
 
     def form_valid(self, form):

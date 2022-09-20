@@ -20,7 +20,7 @@ DIETS = (
 
 INGREDIENTTYPES = {
     ("U", "unknown"),
-    ("M", "Meet"),
+    ("M", "Meat"),
     ("P", "Protein"),
     ("V", "Vegetable"),
     ("F", "Fruit"),
@@ -30,6 +30,17 @@ INGREDIENTTYPES = {
     ("W", "Sweetener"),
 }
 
+class Ingredient(models.Model):
+    name = models.CharField(max_length=50)
+    user = models.ForeignKey
+    category = models.CharField(
+        max_length=10, 
+        choices=INGREDIENTTYPES,
+        )
+    def __str__(self):
+        return self.name
+    def get_absolute_url(self):
+        return reverse('ingredients_detail', kwargs={'ingredient_id': self.id})
 
 class Recipe(models.Model):
     name = models.CharField(max_length=100)
@@ -37,7 +48,8 @@ class Recipe(models.Model):
     description = models.CharField(max_length=255)
     cookTime = models.IntegerField()
     totalTime = models.IntegerField()
-    ingredients = models.CharField(max_length=200)
+    ingredients = models.ManyToManyField(Ingredient)
+    # ingredients = models.CharField(max_length=200)
     instructions = models.TextField()
     notes = models.TextField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -79,12 +91,3 @@ class Profile(models.Model):
     def get_absolute_url(self):
         return reverse('home')
 
-class Ingredient(models.Model):
-    name = models.CharField(max_length=50)
-    user = models.ForeignKey
-    category = models.CharField(
-        max_length=10, 
-        choices=INGREDIENTTYPES,
-        )
-    def __str__(self):
-        return self.name

@@ -26,7 +26,7 @@ urlpatterns = [
     # INGREDIENTS
     path('ingredients/', views.ingredients_index, name="ingredients_index"), 
     path('ingredients/create/', views.IngredientCreate.as_view(), name="ingredients_create"), 
-    path('ingredients/<int:recipe_id>/', views.ingredients_detail, name="ingredients_detail"), 
+    path('ingredients/<int:ingredient_id>/', views.ingredients_detail, name="ingredients_detail"), 
     
 ]
 

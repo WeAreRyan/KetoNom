@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ ingredient.name }} KetoNom
+{% endblock %}
+{% block content %}
+<h1>{{ ingredient.name }} Details</h1>
+{% for recipe in ingredient.recipe_set.all %}
+<span>{{ recipe.name }}, </span>
+{% endfor %}
+<div>Ingredient Type: {{ ingredient.get_category_display }}</div>
+
+
+{% endblock%}

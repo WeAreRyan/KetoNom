@@ -58,6 +58,7 @@
           >
           <ul class="right hide-on-med-and-down">
             {% if user.is_authenticated %}
+            <li><a href="{% url 'ingredients_index' %}">Ingredients</a></li>
             <li><a href="{% url 'recipes_index' %}">Recipes</a></li>
             <li><a href="{% url 'profile_favorites' %}">Favorites</a></li>
             <li><a href="collapsible.html">Javascript</a></li>
