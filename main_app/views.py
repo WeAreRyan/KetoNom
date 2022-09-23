@@ -123,6 +123,12 @@ def profile_favorites(request):
     recipes = profile.favorites.all()
     return render(request,"profile/favorites.html", {"profile": profile, "recipes": recipes})
 
+@login_required
+def profile_detail(request):
+    profile = Profile.objects.get(user = request.user.id)
+    recipes = Recipe.objects.filter(user = request.user.id)
+    return render(request, "profile/detail.html", {"profile": profile, "recipes": recipes})
+
 
 class ProfileCreate(CreateView):
     model = Profile

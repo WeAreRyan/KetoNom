@@ -14,3 +14,9 @@
     width: 30rem;
     margin: 1rem;
 }
+
+.recipeupdatebtn {
+    align-items: right;
+    color: blue;
+    padding: 5rem;
+}

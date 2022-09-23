@@ -20,6 +20,7 @@ urlpatterns = [
     # PROFILE
     path('profile/create/', views.ProfileCreate.as_view(), name="profile_create"), 
     path('profile/new/', views.profile_new, name="profile_new"), 
+    path('profile/detail/', views.profile_detail, name="profile_detail"), 
     # FAVORITES
     path('favorite/<int:id>/', views.favorite_add, name="favorite_add"), 
     path('favorites/', views.profile_favorites, name="profile_favorites"), 

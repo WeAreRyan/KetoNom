@@ -49,7 +49,6 @@ class Recipe(models.Model):
     cookTime = models.IntegerField()
     totalTime = models.IntegerField()
     ingredients = models.ManyToManyField(Ingredient)
-    # ingredients = models.CharField(max_length=200)
     instructions = models.TextField()
     notes = models.TextField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
